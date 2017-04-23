@@ -6,8 +6,18 @@ public class onTriggerDestroy : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Destroyed me ");
-        GameObject.FindGameObjectWithTag("GameController").GetComponent<gameManager>().setScroll(true);
-        GameObject.Destroy(this.gameObject);
-    }
+        if (collision.tag == "Player") {
+            Debug.Log("Destroyed me ");
+            if (this.name == "MissionScroll(Clone)")
+                gameManager.instance.setScroll(true);
+            else if (this.name == "Seed(Clone)") {
+                gameManager.instance.setSeedAvailibility(false);
+                gameManager.instance.seeds++;
+                gameManager.instance.spawnWave();
+            }
+            else { Debug.LogError(""); }
+            Debug.Log(gameManager.instance.hasScroll);
+            GameObject.Destroy(this.gameObject);
+        }
+        }
 }

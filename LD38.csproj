@@ -84,7 +84,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Agent.cs" />
+    <Compile Include="Assets\Menu.cs" />
     <Compile Include="Assets\Scripts\player_controls.cs" />
+    <Compile Include="Assets\UIManager.cs" />
     <Compile Include="Assets\gameManager.cs" />
     <Compile Include="Assets\onTriggerDestroy.cs" />
   </ItemGroup>
